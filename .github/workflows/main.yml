@@ -1,20 +1,22 @@
- name: Java CI with PostgreSQL
- 
- on:
+  name: Java CI with PostgreSQL
+
+on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-    Etiquetas:
-  público:
+
+jobs:
+  build:
     runs-on: ubuntu-latest
 
     services:
       postgres:
         image: postgres:latest
         env:
-          POSTGRES_PASSWORD: Suporte123@
-        ports:  5432
+          POSTGRES_PASSWORD: example
+        ports:
+          - 5432:5432
 
     steps:
     - name: Checkout code
